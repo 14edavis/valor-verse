@@ -19,16 +19,26 @@ def generateReadMe():
     # Change notes about the project here:
     project_notes = f"""
     Names: ValorVerse
-    Dependencies: openai
+    Dependencies: openai (these should be formatted as a list)
     Goal: Assist story writers for the volunteer project "Stories Behind the Stars" in writing accurate and compelling stories about \
     WWII fallen based off of provided research.
 
     Each user needs to get their own API key and save it in secret.config. For sample see sample_secret.config
     """
+    
+    file = open("README.md", "r")
+    previous_readme = file.read()
+    file.close()
 
     prompt =f"""
-    Write a software project README.md file explaining the project in the text delimited by ```. Make sure to include all details \
-    given in the provided text.
+    Write a software project README.md file explaining the project in the reference text delimited by ```. Make sure to include all details \
+    given in the provided text. It is important that all details are included.
+
+    This new README should match the format of the sample text delimited by <>. Use the same headers, when possible. All deviations \
+    from the sample text should be minimal.
+
+    First, generate a README without looking at the sample text. Next, compare the information with the sample text. Use this to create your final \
+    README. If the sample text contains extra information, remove it. If the sample text is missing information, add it.
 
     Welcome the reader. Use a friendly tone. You are writing to both software engineers and potential story writers.
 
@@ -36,10 +46,14 @@ def generateReadMe():
 
     Provide output in markdown format. Include headers and subheaders, as needed.
 
-    ```{project_notes}```
+    Reference Text:```{project_notes}```
+
+    Previously Generated README: <{previous_readme}>
     """
     response = get_completion(prompt)
 
     file = open ("README.md", "w")
     file.write(response)
     file.close()
+
+generateReadMe()

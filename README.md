@@ -2,9 +2,14 @@
 
 Welcome to ValorVerse, a software project aimed at assisting story writers for the volunteer project "Stories Behind the Stars" in writing accurate and compelling stories about WWII fallen based off of provided research.
 
+## Goal
+
+The goal of ValorVerse is to help story writers create meaningful and accurate stories about the brave men and women who fought for our freedom during WWII. By using the power of openai, ValorVerse generates text based on the provided research about a WWII fallen soldier.
+
 ## Dependencies
 
-ValorVerse relies on the openai library to function properly.
+ValorVerse relies on the following libraries to function properly:
+- openai
 
 ## Getting Started
 
