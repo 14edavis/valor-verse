@@ -2,3 +2,4 @@ secret.config
 research.txt
 output.txt
 ignore-me/*
+*/__pycache__
