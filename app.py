@@ -69,12 +69,16 @@ def generateReadMe():
     file.close()
 
 def generateStory(reference_text):
-    prompt = f"""
-    Your task is to write a story about a fallen solider from WWII. Your story should only draw on facts given to you in \
-    the reference material, delimited by ```. If a date, name, or other detail is not included in the reference material or \
-    this prompt, do NOT include it in the story. Do not make assumptions.
+    file = open("ignore-me/sample-story.txt", "r")
+    sample_biography = file.read()
+    file.close()
 
-    Before you write the story, first check the reference material an make note of the following key details about the fallen. It is \
+    prompt = f"""
+    Your task is to write a shor biography about a fallen solider from WWII. The biography should only draw on facts given to you in \
+    the reference material, delimited by ```. If a date, name, or other detail is not included in the reference material or \
+    this prompt, do NOT include it in the biography. Do not make assumptions.
+
+    Before you write the biography, first check the reference material an make note of the following key details about the fallen. It is \
     okay if some details are missing.
     - Full Name
     - Birth date
@@ -93,9 +97,9 @@ def generateStory(reference_text):
     - How many brothers and sisters
     - Interesting details about family members (parent's occupation, other siblings that served in the millitary, etc.) 
 
-    Once you have noted any facts found in the reference text, write a 3-5 paragraph story about the fallen solider. The story \
+    Once you have noted any facts found in the reference text, write a 5 paragraph biography about the fallen solider. The biography \
     should be both educational and fun to read. Only include details that are directly related to the fallen solider and his/her \
-    story. Always be respectful of the fallen and their sacrifice. 
+    experience. Always be respectful of the fallen and their sacrifice. 
 
     The first sentence should include the fallen's full name, birth date, and birth place (if provided). The rest of the first paragraph \
     should describe any details about the fallen's childhood and family.
@@ -104,10 +108,18 @@ def generateStory(reference_text):
     and the situations surrounding their death. The final paragraph should give their death date, death place, cause of death, \
     and location of burial (if provided).
 
+    Include a one more paragraph with the exact wording delimited in the <>. 
+    <This story is part of the Stories Behind the Stars project (see www.storiesbehindthestars.org/) . This is a national effort of \
+    volunteers to write the stories of all 400,000+ of the US WWII fallen here on Fold3. Can you help write these stories? Related to this, \
+    there will be a smart phone app that will allow people to visit any war memorial or cemetery, scan the fallen's name and read his/her story.>
+
     At the end, include a formatted "Citations" section with any citations included in the reference text. All citations should be listed as \
     bullet point items. This section is in addition to the 3-5 paragraphs mentioned above.
 
     Again, only use facts and details found in this reference text: ```{reference_text}```
+
+    Base your writing style off of the sample biography, delimited by [], below:
+    [{sample_biography}]
 
     """
 
