@@ -24,7 +24,8 @@ key_detail_list =f"""
 """
 
 story_structure = f"""
-Once you have noted any facts found in the reference text, write a 5 paragraph biography about the fallen solider. The biography \
+Once you have noted any facts found in the reference text, write a 5 paragraph biography about the fallen solider. \
+(If there is not enough information for 5 paragraphs, write 3 paragraphs instead.) The biography \
 should be both educational and fun to read. Only include details that are directly related to the fallen solider and his/her \
 experience. Always be respectful of the fallen and their sacrifice. 
 
